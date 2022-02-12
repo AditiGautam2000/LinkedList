@@ -1,0 +1,42 @@
+class Solution
+{
+    public static Node reverse(Node head,int count,int target)
+    {
+        Node prev=null,next=null,curr=head;
+        while(count!=target && curr!=null)
+        {
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+            count++;
+        }
+        head.next=curr;
+        return prev;
+    }
+    
+    public static Node reverseBetween(Node head, int left, int right)
+    {
+        if(left==right)
+            return head;
+        
+        Node curr=head,prev=head;
+        int count=1;
+        while(curr!=null && count!=left)
+        {
+            prev=curr;
+            curr=curr.next;
+            count++;
+        }
+        
+        if(left!=1)
+            prev.next=reverse(curr,count,right+1);
+        else
+            return reverse(curr,count,right+1);
+        return head;
+    }
+}
+
+https://practice.geeksforgeeks.org/problems/reverse-a-sublist-of-a-linked-list/1/?category[]=Linked%20List&category[]=Linked%20List&page=1&sortBy=newest&query=category[]Linked%20Listpage1sortBynewestcategory[]Linked%20List#
+
+
