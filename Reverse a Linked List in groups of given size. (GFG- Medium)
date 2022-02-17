@@ -1,0 +1,26 @@
+class Solution
+{
+    public static Node reverse(Node head, int k)
+    {      
+        
+        Node curr=head;
+        Node prev=null;
+        Node next=null;
+    
+        int c=0;
+        while(curr!=null&& c<k)
+             {  
+                 next=curr.next;
+                 curr.next=prev;
+                 prev=curr;
+                 curr=next;
+                ++c;}
+                if(next!=null)
+                head.next=reverse(next,k);
+                
+   
+                return prev;
+    }
+    }
+
+https://practice.geeksforgeeks.org/viewSol.php?subId=df29e9b7847e8586bac31798637b38c7&pid=700013&user=aditigautam
