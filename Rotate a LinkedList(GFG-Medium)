@@ -1,0 +1,31 @@
+class Solution{
+    //Function to rotate a linked list.
+    public Node rotate(Node head, int k) {
+        Node temp=head,top;
+        int n=0;
+        
+        if(head==null) return null;
+        
+      Node lastnode=head;
+      while(lastnode.next!=null)
+      {
+          lastnode=lastnode.next;
+          ++n;
+      }
+      if(k>=(n+1))
+      return head;
+      
+      while(k>1)
+      {
+          temp=temp.next;--k;
+      }
+      
+      Node newhead=temp.next;
+      temp.next=null;
+      lastnode.next=head;
+      return newhead;
+    
+}}
+
+
+https://practice.geeksforgeeks.org/problems/rotate-a-linked-list/1/?page=2&company[]=Microsoft&sortBy=submissions#
