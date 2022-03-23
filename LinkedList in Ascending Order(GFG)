@@ -1,0 +1,23 @@
+class Solution {
+    public static Node partition(Node node, int b) {
+        
+        ArrayList<Integer> a =new ArrayList<Integer>();
+        Node x=new Node(0);
+        Node c=x;
+        Node n=node;
+        while(n!=null)
+        {
+            a.add(n.data);
+            n=n.next;
+        }
+        Collections.sort(a);  
+        
+        for(int i=0;i<a.size();i++)
+        {
+            x.next= new Node (a.get(i));
+            x=x.next;
+        }
+          c= c.next;
+          return c;
+    }
+}
